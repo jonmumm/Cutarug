@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-cutarug::Application.load_tasks
+Cutarug::Application.load_tasks

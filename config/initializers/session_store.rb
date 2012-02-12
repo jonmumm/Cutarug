@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-cutarug::Application.config.session_store :cookie_store, key: '_cutarug_session'
+Cutarug::Application.config.session_store :cookie_store, key: '_Cutarug_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# cutarug::Application.config.session_store :active_record_store
+# Cutarug::Application.config.session_store :active_record_store
