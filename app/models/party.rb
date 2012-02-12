@@ -1,12 +1,13 @@
 class Party < ActiveRecord::Base
   attr_accessible :party_session_id, :web_session_id
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
-    end
+  before_create :generate_session_id
+
+  private
+  def generate_session_id
+    opentok = OpenTok::OpenTokSDK.new ENV['OPENTOK_API_KEY'], ENV['OPENTOK_API_SECRET'], :api_url => "https://api.opentok.com/hl"
+    self.party_session_id = opentok.create_session.to_s
+    self.web_session_id = opentok.create_session.to_s
   end
 
 end

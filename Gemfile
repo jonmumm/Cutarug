@@ -2,9 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
-group :production do
-  gem 'pg'
-end
 
 group :development, :test do
   gem 'sqlite3'
@@ -44,3 +41,4 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 gem 'validatious'
 
 gem 'omniauth-facebook'
+gem 'opentok'

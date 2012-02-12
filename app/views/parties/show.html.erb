@@ -1,4 +1,18 @@
-<% title "Party" %>
+<% content_for :head do %>
+<script src="http://static.opentok.com/v0.91/js/TB.min.js" ></script>
+<% end %>
+
+<script type="text/javascript">
+  window.app_config = {
+    opentok_api_key: <%= ENV["OPENTOK_API_KEY"] %>,
+
+    party_session: TB.initSession("<%= @party.party_session_id %>"),
+    web_session: TB.initSession("<%= @party.web_session_id %>"),
+
+    party_token: "<%= @party_token %>",
+    web_token: "<%= @web_token %>"
+  };
+</script>
 
 <p>
   <strong>Party Session:</strong>
@@ -9,5 +23,9 @@
   <%= @party.web_session_id %>
 </p>
 
-<p>
-</p>
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+<% end %>
