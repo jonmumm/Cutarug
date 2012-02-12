@@ -1,0 +1,7 @@
+one:
+  party_session_id: MyString
+  web_session_id: MyString
+
+two:
+  party_session_id: MyString
+  web_session_id: MyString
